@@ -1,7 +1,5 @@
 import React from 'react';
 
-function CompletedQuiz() {
+export function CompletedQuiz() {
     return <h1>Completed Quiz</h1>;
 }
-
-export default CompletedQuiz;
