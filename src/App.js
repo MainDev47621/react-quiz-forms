@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import React, { useState } form 'react';
 import './App.css';
+import { BeginQuiz } from './BeginQuiz';
+import { Question } from './Question';
+import { CompletedQuiz } from './CompletedQuiz';
 
 function App() {
+  const [question, setQuestion] = useState(0);
+  const [answers, setAnswers] = useState([]);
+  const [quizStatus, setQuizStatus] = useState('inProgress');
+
+  const incrementQuestion = () => {
+    setQuestion(question => question + 1);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      { quizStatus === 'notTaken' && <BeginQuiz /> }
+      { quizStatus === 'inProgress' && <Question /> }
+      { quizStatus === 'completed' && <CompletedQuiz /> }
     </div>
   );
 }
